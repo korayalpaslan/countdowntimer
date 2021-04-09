@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Launch countdown timer</title>
+
+</head>
+<body>
+
+    <div class="container">
+
+      <div class="stars">
+
+        <h2>We're launching soon</h2>
+
+        <ul class="countdown-block">
+          <li class="timer"><span id="days"></span></li>
+          <li class="timer"><span id="hours"></span></li>
+          <li class="timer"><span id="minutes"></span></li>
+          <li class="timer"><span id="seconds"></span></li>
+          <li class="title">Days</li>
+          <li class="title">Hours</li>
+          <li class="title">Minutes</li>
+          <li class="title">Second</li>
+        </ul>
+
+      </div>
+
+      <div class="hills">
+
+        <ul class= social-icons>
+          <li><img src="images/icon-facebook.svg" alt=""></li>
+          <li><img src="images/icon-pinterest.svg" alt=""></li>
+          <li><img src="images/icon-instagram.svg" alt=""></li>
+        </ul>
+
+      </div>
+
+
+    </div>
+
+    <script>
+      const second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            day = hour * 24;
+  
+      let countDown = new Date('Sep 30, 2021 00:00:00').getTime(),
+          anywordhere = setInterval(function() {
+  
+            let now = new Date().getTime(),
+                distance = countDown - now;
+  
+              document.getElementById('days').innerText = Math.floor(distance / (day)),
+              document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+              document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+              document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+  
+          }, second)
+        </script>
+  
+</body>
+</html>
